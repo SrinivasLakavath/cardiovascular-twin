@@ -1,0 +1,271 @@
+=====================================================
+PROJECT: Explainable Cardiovascular Digital Twin
+UI EXTENSION: Research Demonstration Web Interface
+MODE: Additive (UI Layer Only)
+TARGET: Evaluation + Placements + Demo
+=====================================================
+
+GLOBAL RULES (NON-NEGOTIABLE):
+- DO NOT modify existing V1 or V2 core code
+- DO NOT retrain any ML model
+- UI must consume existing functions via import only
+- UI must clearly state this is a simulation, not clinical
+- All claims must be honest and conservative
+- Prefer clarity over visual complexity
+
+=====================================================
+TECH STACK DECISION
+=====================================================
+
+UI FRAMEWORK:
+- Streamlit (Python-based research UI)
+
+RATIONALE:
+- Fast to build
+- Easy to demo
+- Python-native
+- Appropriate for research prototypes
+- No frontend/backend complexity
+
+=====================================================
+UI FOLDER STRUCTURE (ADD ONLY)
+=====================================================
+
+ui_app/
+├── app.py
+├── sections/
+│   ├── input_panel.py
+│   ├── output_panel.py
+│   ├── metrics_panel.py
+│   ├── methodology_panel.py
+│   ├── transparency_panel.py
+│   └── disclaimer_panel.py
+├── assets/
+│   └── architecture.png (optional)
+└── README_UI.md
+
+=====================================================
+UI BUILD ORDER (STRICT)
+=====================================================
+
+STEP 1: Base Streamlit App
+STEP 2: Input Panel
+STEP 3: Output & Prediction Panel
+STEP 4: V1 vs V2 Toggle Logic
+STEP 5: Performance Metrics Panel
+STEP 6: Methodology Explanation Panel
+STEP 7: Transparency & Data Usage Panel
+STEP 8: Disclaimer & Accuracy Framing
+STEP 9: Final UI Integration & Testing
+
+DO NOT SKIP OR REORDER STEPS.
+
+=====================================================
+STEP 1 — BASE STREAMLIT APP
+=====================================================
+
+ANTIGRAVITY PROMPT:
+
+"Create a Streamlit app at:
+ui_app/app.py
+
+Responsibilities:
+- Initialize the Streamlit page
+- Set page title and layout (wide)
+- Import section modules from ui_app/sections
+- Arrange UI in a clean multi-column layout
+
+Title:
+'Explainable Cardiovascular Digital Twin (Research Demo)'
+
+Subtitle:
+'Physiology-Inspired Simulation with ML Surrogate & Uncertainty'
+
+Do NOT add logic yet.
+Return only the code."
+
+=====================================================
+STEP 2 — INPUT PANEL
+=====================================================
+
+ANTIGRAVITY PROMPT:
+
+"Create a module at:
+ui_app/sections/input_panel.py
+
+This panel must collect:
+- Age (slider)
+- Baseline SBP (slider)
+- Baseline DBP (slider)
+- Heart Rate (slider)
+- Drug Class (dropdown)
+- Dosage (slider)
+
+Add explanatory text:
+'Inputs represent a synthetic patient profile for simulation.'
+
+Return inputs as a structured dictionary.
+
+Do NOT perform prediction here.
+Return only the code."
+
+=====================================================
+STEP 3 — OUTPUT & PREDICTION PANEL
+=====================================================
+
+ANTIGRAVITY PROMPT:
+
+"Create a module at:
+ui_app/sections/output_panel.py
+
+Responsibilities:
+- Call existing V1 or V2 prediction functions (based on selection)
+- Display:
+  - Predicted ΔSBP, ΔDBP
+  - Uncertainty bounds (if V2)
+- Add a short textual interpretation using cautious language:
+  'expected change', 'simulated response'
+
+DO NOT use clinical language.
+Return only the code."
+
+=====================================================
+STEP 4 — VERSION TOGGLE (V1 vs V2)
+=====================================================
+
+ANTIGRAVITY PROMPT:
+
+"In app.py, add a toggle:
+- Version 1: Synthetic Digital Twin
+- Version 2: Real-World Grounded Digital Twin
+
+Behavior:
+- V1 uses clean synthetic inference
+- V2 uses noise-grounded + uncertainty-aware inference
+
+Add tooltip text explaining the difference.
+
+Do NOT modify any model code.
+Return only the code changes."
+
+=====================================================
+STEP 5 — MODEL PERFORMANCE METRICS PANEL
+=====================================================
+
+ANTIGRAVITY PROMPT:
+
+"Create a module at:
+ui_app/sections/metrics_panel.py
+
+Display metrics clearly:
+
+Version 1:
+- Training data: Synthetic
+- MAE (synthetic): ~0.003 mmHg
+- Purpose: Method validation
+
+Version 2:
+- Training data: Synthetic
+- Grounding: Kaggle BP statistics
+- MAE (noise-grounded): ~0.5 mmHg
+- Purpose: Robustness & realism
+
+Add explanatory notes:
+'Performance degradation under noise is expected.'
+
+Do NOT show accuracy percentages.
+Return only the code."
+
+=====================================================
+STEP 6 — METHODOLOGY EXPLANATION PANEL
+=====================================================
+
+ANTIGRAVITY PROMPT:
+
+"Create a module at:
+ui_app/sections/methodology_panel.py
+
+Explain the workflow using text and simple diagrams:
+
+Pipeline:
+- Physiology-inspired simulator (Windkessel)
+- Synthetic data generation
+- ML surrogate digital twin
+- Explainability & uncertainty
+- What-if analysis
+
+Emphasize:
+- ML model is the digital twin
+- Simulator is a teacher, not the final model
+
+Keep language concise and academic.
+Return only the code."
+
+=====================================================
+STEP 7 — TRANSPARENCY & DATA USAGE PANEL
+=====================================================
+
+ANTIGRAVITY PROMPT:
+
+"Create a module at:
+ui_app/sections/transparency_panel.py
+
+Include a table:
+
+Component | Data Type
+--------------------------------
+Physiology model | Synthetic
+Training labels | Synthetic
+Noise statistics | Real (Kaggle)
+Validation | Synthetic + noise-grounded
+Deployment readiness | Not claimed
+
+Add text explaining ethical transparency.
+
+Return only the code."
+
+=====================================================
+STEP 8 — DISCLAIMER & ACCURACY FRAMING
+=====================================================
+
+ANTIGRAVITY PROMPT:
+
+"Create a module at:
+ui_app/sections/disclaimer_panel.py
+
+Display a prominent disclaimer:
+
+- This system is a research simulation
+- Outputs are not clinically accurate
+- No medical decisions should be made
+- With high-quality real-world data, the architecture could be calibrated to improve relevance
+
+Explain:
+- Why accuracy percentages are not shown
+- Why uncertainty is more meaningful
+
+Use clear, non-alarming language.
+Return only the code."
+
+=====================================================
+STEP 9 — FINAL UI TESTING & README
+=====================================================
+
+ANTIGRAVITY PROMPT:
+
+"Create documentation at:
+ui_app/README_UI.md
+
+Include:
+- How to run the UI
+- What Version 1 shows
+- What Version 2 adds
+- How ML contributes
+- Ethical and technical limitations
+
+Ensure the UI runs without modifying any existing project files.
+Return only the code."
+
+=====================================================
+END OF FILE
+=====================================================

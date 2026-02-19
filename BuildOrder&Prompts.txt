@@ -1,0 +1,259 @@
+=====================================================
+PROJECT: Explainable Cardiovascular Digital Twin
+MODE: Vibe Coding with Antigravity
+OS: Windows
+LANGUAGE: Python
+=====================================================
+
+IMPORTANT GLOBAL RULES (DO NOT BREAK):
+- Do NOT use external GitHub repositories
+- Do NOT add Docker, CUDA, or Linux-specific tools
+- Do NOT claim clinical or medical accuracy
+- Do NOT simulate real drug names
+- Keep everything deterministic and explainable
+- Use only: numpy, scipy, pandas, scikit-learn, torch, shap, matplotlib
+- Follow the build order strictly
+
+=====================================================
+BUILD ORDER (FREEZE THIS)
+=====================================================
+
+PHASE 1: Physiology Core (Windkessel)
+PHASE 2: Synthetic Patient Generator
+PHASE 3: Intervention (Drug → Parameter Mapping)
+PHASE 4: Synthetic Dataset Factory
+PHASE 5: ML Surrogate Digital Twin
+PHASE 6: Explainable AI (XAI)
+PHASE 7: Validation & What-if Experiments
+
+DO NOT SKIP OR REORDER PHASES.
+
+=====================================================
+PHASE 1 — PHYSIOLOGY CORE
+=====================================================
+
+GOAL:
+Implement a canonical, minimal Windkessel cardiovascular model
+used ONLY as a physiology-inspired generator.
+
+ANTIGRAVITY PROMPT:
+
+"You are a careful scientific Python developer.
+
+Create a module at:
+physio_engine/windkessel/core.py
+
+Implement a canonical lumped-parameter Windkessel model.
+
+Use the following governing equation:
+dP/dt = (Q - P/R) / C
+
+Requirements:
+- Use numpy and scipy.integrate.odeint
+- No plotting
+- No randomness
+- No ML
+- Deterministic output
+
+Implement exactly these functions:
+
+1) windkessel_ode(P, t, R, C, Q)
+2) simulate_bp(R, C, Q, t_end=10.0, dt=0.01)
+
+simulate_bp must:
+- simulate pressure over time
+- compute systolic BP (max)
+- compute diastolic BP (min)
+- return (sbp, dbp) as floats
+
+Do NOT add extra features or abstractions.
+Return only the code for core.py."
+
+=====================================================
+PHASE 2 — SYNTHETIC PATIENT GENERATOR
+=====================================================
+
+GOAL:
+Create reproducible synthetic patient profiles.
+
+ANTIGRAVITY PROMPT:
+
+"Create a module at:
+synthetic_layer/patient_sampler.py
+
+Implement a synthetic patient generator.
+
+Requirements:
+- Deterministic randomness (seeded)
+- No external datasets
+- Use realistic but generic ranges
+
+Implement:
+sample_patient() -> dict
+
+The returned dictionary must include:
+- age
+- baseline_sbp
+- baseline_dbp
+- heart_rate
+- risk_group (low / medium / high)
+
+Do NOT include drugs or interventions.
+Do NOT include ML.
+Return only the code."
+
+=====================================================
+PHASE 3 — INTERVENTION MAPPING
+=====================================================
+
+GOAL:
+Abstract interventions as parameter changes, not real drugs.
+
+ANTIGRAVITY PROMPT:
+
+"Create a module at:
+synthetic_layer/intervention_mapper.py
+
+Implement an intervention abstraction layer.
+
+Implement:
+map_intervention(drug_class, dosage) -> dict
+
+Supported drug_class values:
+- 'beta_blocker'
+- 'vasodilator'
+- 'stimulant'
+- 'volume_expander'
+
+Mapping rules (explicit):
+- beta_blocker → decrease Q
+- vasodilator → decrease R
+- stimulant → increase Q
+- volume_expander → increase C
+
+Dosage should scale the magnitude of change.
+
+Do NOT simulate real drugs.
+Do NOT include randomness.
+Return only the code."
+
+=====================================================
+PHASE 4 — SYNTHETIC DATA FACTORY
+=====================================================
+
+GOAL:
+Generate a clean tabular dataset for ML.
+
+ANTIGRAVITY PROMPT:
+
+"Create a module at:
+synthetic_layer/data_generator.py
+
+This module must:
+1) sample a patient
+2) map an intervention
+3) call simulate_bp from physio_engine
+4) compute delta SBP and DBP
+5) save rows into a CSV file
+
+Each dataset row must contain:
+- age
+- baseline_sbp
+- baseline_dbp
+- heart_rate
+- drug_class
+- dosage
+- delta_sbp
+- delta_dbp
+
+Save output to:
+data/raw/synthetic_dataset.csv
+
+Do NOT add ML or plots.
+Return only the code."
+
+=====================================================
+PHASE 5 — ML SURROGATE DIGITAL TWIN
+=====================================================
+
+GOAL:
+Train an ML model that acts as the digital twin.
+
+ANTIGRAVITY PROMPT:
+
+"Create a module at:
+twin_model/model.py
+
+Implement a regression-based surrogate digital twin.
+
+Requirements:
+- Multi-output regression (delta_sbp, delta_dbp)
+- Use PyTorch or scikit-learn
+- Simple architecture (MLP or tree-based)
+
+Then create:
+twin_model/train.py
+
+train.py must:
+- load processed CSV
+- train the model
+- save trained weights
+
+No explainability here.
+Return only the code."
+
+=====================================================
+PHASE 6 — EXPLAINABLE AI (XAI)
+=====================================================
+
+GOAL:
+Explain model behavior and validate plausibility.
+
+ANTIGRAVITY PROMPT:
+
+"Create modules at:
+explainability/shap_global.py
+explainability/shap_local.py
+
+Use SHAP to:
+- compute global feature importance
+- compute local explanations for individual patients
+
+Plots must be saved to:
+explainability/plots/
+
+Do NOT retrain the model here.
+Return only the code."
+
+=====================================================
+PHASE 7 — VALIDATION & WHAT-IF ANALYSIS
+=====================================================
+
+GOAL:
+Prove this is a digital twin, not just an ML model.
+
+ANTIGRAVITY PROMPT:
+
+"Create a module at:
+validation/physiological_checks.py
+
+Implement sanity checks such as:
+- increasing resistance increases SBP
+- increasing dosage increases magnitude of response
+
+Use assert statements.
+
+Then create:
+experiments/what_if_analysis.ipynb
+
+This notebook must demonstrate:
+- same patient, different interventions
+- same intervention, different patients
+- dose-response trends
+
+Do NOT add new models.
+Return only the code/notebook."
+
+=====================================================
+END OF FILE
+=====================================================

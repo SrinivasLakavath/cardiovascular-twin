@@ -1,0 +1,187 @@
+=====================================================
+PROJECT EXTENSION: REAL-WORLD READINESS & ADAPTABILITY
+MODE: Additive Improvements (NO core rewrite)
+GOAL: Demonstrate how the digital twin can generalize
+=====================================================
+
+GLOBAL CONSTRAINTS:
+- Do NOT use real patient data
+- Do NOT change existing simulator logic
+- Do NOT retrain the base model unless specified
+- All additions must be modular and optional
+- Focus on adaptability, calibration, and uncertainty
+
+=====================================================
+EXTENSION 1 — INPUT NORMALIZATION & SCALE ADAPTER
+=====================================================
+
+GOAL:
+Allow the digital twin to accept real-world BP ranges
+without retraining the entire system.
+
+RATIONALE:
+Real-world BP values differ in scale and distribution
+from synthetic simulator outputs.
+
+ANTIGRAVITY PROMPT:
+
+"Create a module at:
+real_world/scale_adapter.py
+
+Implement functions to normalize and denormalize inputs.
+
+Functions:
+1) normalize_inputs(real_world_features, reference_stats)
+2) denormalize_outputs(model_outputs, reference_stats)
+
+Requirements:
+- Reference stats include mean and std for each feature
+- Support plug-in calibration without retraining
+- Do NOT hardcode values
+
+Explain in comments how this enables real-world deployment."
+
+=====================================================
+EXTENSION 2 — PARAMETER CALIBRATION LAYER
+=====================================================
+
+GOAL:
+Calibrate physiology parameters using real data
+without modifying the model structure.
+
+RATIONALE:
+Digital twins require personalization via calibration.
+
+ANTIGRAVITY PROMPT:
+
+"Create a module at:
+real_world/calibration.py
+
+Implement a simple parameter calibration mechanism.
+
+Functions:
+1) calibrate_parameters(observed_bp, simulated_bp)
+2) apply_calibration(R, C, Q, calibration_factors)
+
+Requirements:
+- Use optimization or scaling (least squares)
+- No learning, only parameter fitting
+- Calibration must be patient-specific
+- Clearly document assumptions
+
+Add comments explaining how this bridges synthetic
+and real-world data."
+
+=====================================================
+EXTENSION 3 — UNCERTAINTY ESTIMATION (CRITICAL)
+=====================================================
+
+GOAL:
+Quantify confidence in predictions when applied
+outside the synthetic training distribution.
+
+RATIONALE:
+Real-world deployment requires uncertainty awareness.
+
+ANTIGRAVITY PROMPT:
+
+"Create a module at:
+real_world/uncertainty.py
+
+Implement prediction uncertainty estimation.
+
+Methods (choose one or more):
+- Ensemble-based uncertainty
+- Prediction interval estimation
+- Bootstrapped variance
+
+Functions:
+1) estimate_uncertainty(model, input_sample)
+2) flag_out_of_distribution(input_sample)
+
+Explain in comments how uncertainty guides safe usage
+in real-world settings."
+
+=====================================================
+EXTENSION 4 — DOMAIN SHIFT SIMULATION
+=====================================================
+
+GOAL:
+Test how the digital twin behaves under distribution
+shifts similar to real-world data mismatch.
+
+RATIONALE:
+Synthetic data rarely matches real distributions.
+
+ANTIGRAVITY PROMPT:
+
+"Create a module at:
+validation/domain_shift_tests.py
+
+Simulate domain shift scenarios:
+- Noisier vitals
+- Extreme patient profiles
+- Altered feature correlations
+
+Evaluate:
+- Error increase
+- Uncertainty increase
+- Prediction stability
+
+Summarize findings programmatically."
+
+=====================================================
+EXTENSION 5 — REAL-WORLD READINESS SCORECARD
+=====================================================
+
+GOAL:
+Provide a structured, honest assessment of deployment readiness.
+
+RATIONALE:
+Evaluators respect quantified limitations.
+
+ANTIGRAVITY PROMPT:
+
+"Create a module at:
+real_world/readiness_scorecard.py
+
+Implement a readiness evaluation framework.
+
+Score categories:
+- Calibration readiness
+- Robustness to noise
+- Uncertainty awareness
+- Interpretability
+- Safety constraints
+
+Output:
+- Structured dictionary
+- Human-readable report
+
+Clearly state what is required for real-world deployment."
+
+=====================================================
+EXTENSION 6 — MODEL GENERALIZATION STATEMENT (DOCUMENTATION)
+=====================================================
+
+GOAL:
+Prevent overclaiming and strengthen academic defense.
+
+ANTIGRAVITY PROMPT:
+
+"Update README.md with a new section:
+'Real-World Applicability & Limitations'
+
+Include:
+- What would change with real data
+- How calibration would be performed
+- Expected accuracy behavior
+- Safety and uncertainty handling
+- Why synthetic validation is still meaningful
+
+Do NOT make clinical claims.
+Use precise academic language."
+
+=====================================================
+END OF EXTENSIONS
+=====================================================

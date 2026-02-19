@@ -1,0 +1,97 @@
+{
+  "timestamp": "2026-01-29T17:10:06.954502",
+  "scores": {
+    "calibration": {
+      "score": 8,
+      "max_score": 10,
+      "percentage": 80.0,
+      "details": [
+        "\u2713 Calibration module implemented",
+        "\u2713 Parameter adjustment capability available",
+        "\u2713 Multi-observation calibration supported",
+        "\u26a0\ufe0f Real patient data integration not yet tested",
+        "\u26a0\ufe0f Calibration accuracy not validated on real data"
+      ],
+      "status": "PARTIAL"
+    },
+    "robustness": {
+      "score": 8,
+      "max_score": 10,
+      "percentage": 80.0,
+      "details": [
+        "\u2713 Domain shift testing implemented",
+        "\u2713 Input validation capability available",
+        "\u2713 Noise simulation capability",
+        "\u26a0\ufe0f Real sensor noise not characterized",
+        "\u26a0\ufe0f No formal robustness guarantees"
+      ],
+      "status": "PARTIAL"
+    },
+    "uncertainty": {
+      "score": 9,
+      "max_score": 10,
+      "percentage": 90.0,
+      "details": [
+        "\u2713 Uncertainty estimation module implemented",
+        "\u2713 Out-of-distribution detection available",
+        "\u2713 Prediction confidence intervals supported",
+        "\u26a0\ufe0f Uncertainty estimates not validated on real data",
+        "\u26a0\ufe0f Uncertainty not integrated into clinical workflow"
+      ],
+      "status": "GOOD"
+    },
+    "interpretability": {
+      "score": 10,
+      "max_score": 10,
+      "percentage": 100.0,
+      "details": [
+        "\u2713 SHAP global explanations implemented",
+        "\u2713 SHAP local explanations implemented",
+        "\u2713 Physiology-inspired model (Windkessel)",
+        "\u26a0\ufe0f Explanations not validated with clinicians",
+        "\u26a0\ufe0f No clinical user interface"
+      ],
+      "status": "GOOD"
+    },
+    "safety": {
+      "score": 7,
+      "max_score": 10,
+      "percentage": 70.0,
+      "details": [
+        "\u2713 Physiological bounds checking",
+        "\u2713 Out-of-distribution flagging",
+        "\u2713 Uncertainty-based decision rules",
+        "\u2717 No clinical validation protocol",
+        "\u2717 Not regulatory compliant (FDA/CE)",
+        "\u2717 No adverse event monitoring system",
+        "\u26a0\ufe0f Requires mandatory clinical review"
+      ],
+      "status": "PARTIAL"
+    }
+  },
+  "overall_score": 42,
+  "overall_max": 50,
+  "overall_percentage": 84.0,
+  "overall_status": "READY (with limitations)",
+  "recommendations": [
+    "Collect 100+ real patient observations for calibration validation",
+    "Conduct clinical validation study with domain experts",
+    "Implement real-time uncertainty monitoring dashboard",
+    "Establish clinical review protocol for all predictions",
+    "Characterize real sensor noise and update robustness tests",
+    "Develop regulatory compliance documentation (if pursuing approval)",
+    "Create adverse event reporting and monitoring system",
+    "Validate SHAP explanations with clinicians",
+    "Implement automated OOD detection in production pipeline",
+    "Establish periodic model recalibration schedule"
+  ],
+  "critical_gaps": [
+    "NO REAL PATIENT DATA VALIDATION - All testing is on synthetic data",
+    "NO CLINICAL VALIDATION - Not tested with actual clinicians",
+    "NO REGULATORY APPROVAL - Not FDA/CE certified",
+    "NO PROSPECTIVE STUDY - No real-world performance data",
+    "NO ADVERSE EVENT MONITORING - No safety tracking system",
+    "LIMITED SAFETY CONSTRAINTS - Requires human oversight",
+    "NO TEMPORAL DYNAMICS - Single time-point predictions only"
+  ]
+}

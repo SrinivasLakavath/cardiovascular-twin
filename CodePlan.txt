@@ -1,0 +1,353 @@
+Below is a **file-by-file, responsibility-by-responsibility CODE PLAN** that you can literally follow like a checklist. No repo roulette, no “we’ll see later”.
+
+I’ll be **brutally clear** about:
+
+* what each file does
+* what NOT to do in that file
+* when Antigravity is allowed
+* when *you* must think
+
+---
+
+# FINAL CODE PLAN
+
+**Explainable Cardiovascular Digital Twin**
+
+This plan is **evaluation-safe** and **execution-safe**.
+
+---
+
+## 0. Project Root (freeze this structure)
+
+```
+cardio-digital-twin/
+│
+├── physio_engine/
+├── synthetic_layer/
+├── data/
+├── twin_model/
+├── explainability/
+├── experiments/
+├── validation/
+└── README.md
+```
+
+If you deviate from this, things WILL get messy.
+
+---
+
+## 1. physio_engine/
+
+**Purpose: Physiology-inspired ground truth generator**
+⚠️ Touch this ONCE, then freeze.
+
+```
+physio_engine/
+└── windkessel/
+    ├── core.py
+    └── __init__.py
+```
+
+### core.py
+
+**Responsibility**
+
+* Implements canonical Windkessel model
+* Produces SBP & DBP
+
+**Allowed**
+
+* numpy
+* scipy
+
+**NOT allowed**
+
+* ML
+* drugs
+* plotting
+* randomness
+
+**Core functions**
+
+```python
+def simulate_bp(R, C, Q, t_end=10.0, dt=0.01) -> (sbp, dbp)
+```
+
+📌 This file is your **physiology anchor**.
+Never mention “toy model” — call it *canonical lumped-parameter model*.
+
+---
+
+## 2. synthetic_layer/
+
+**Purpose: Turn physiology into a controllable experiment engine**
+
+```
+synthetic_layer/
+├── patient_sampler.py
+├── intervention_mapper.py
+└── data_generator.py
+```
+
+### patient_sampler.py
+
+**Responsibility**
+
+* Generate synthetic patient profiles
+
+```python
+def sample_patient() -> dict
+```
+
+Example output:
+
+```python
+{
+  "age": 55,
+  "baseline_sbp": 130,
+  "baseline_dbp": 85,
+  "hr": 72,
+  "risk_group": "medium"
+}
+```
+
+**Rules**
+
+* Use ranges, not distributions pulled from papers
+* Deterministic + seeded randomness
+
+---
+
+### intervention_mapper.py
+
+**Responsibility**
+
+* Abstract drug effects → model parameters
+
+```python
+def map_intervention(drug_class, dosage) -> {R, C, Q}
+```
+
+**This file is CRITICAL for defense**
+
+You explicitly encode assumptions:
+
+* beta_blocker → ↓Q
+* vasodilator → ↓R
+* stimulant → ↑Q
+
+This is where **XAI later makes sense**.
+
+---
+
+### data_generator.py
+
+**Responsibility**
+
+* Glue everything together
+* Generate dataset rows
+
+Pipeline:
+
+1. sample patient
+2. get baseline params
+3. apply intervention
+4. call simulate_bp
+5. compute deltas
+6. save row
+
+Output → CSV
+
+📌 This is your **synthetic data factory**.
+
+---
+
+## 3. data/
+
+**Purpose: Storage, nothing else**
+
+```
+data/
+├── raw/
+│   └── synthetic_dataset.csv
+└── processed/
+    └── train_ready.csv
+```
+
+Rules:
+
+* No logic here
+* No scripts
+* Only data
+
+---
+
+## 4. twin_model/
+
+**Purpose: The ACTUAL Digital Twin**
+
+```
+twin_model/
+├── model.py
+├── train.py
+└── evaluate.py
+```
+
+### model.py
+
+Defines ML architecture.
+
+Allowed:
+
+* MLP
+* Gradient Boosting
+* Random Forest
+
+```python
+class SurrogateTwin(nn.Module):
+    def forward(self, x):
+        return delta_sbp, delta_dbp, delta_hr
+```
+
+📌 This model **IS** the digital twin.
+
+---
+
+### train.py
+
+**Responsibility**
+
+* Load processed data
+* Train model
+* Save weights
+
+NO:
+
+* plotting
+* SHAP
+* experiments
+
+Clean training loop only.
+
+---
+
+### evaluate.py
+
+**Responsibility**
+
+* Numeric evaluation
+* MAE / RMSE
+* Sanity checks
+
+Example sanity:
+
+* higher dosage → higher magnitude response
+
+---
+
+## 5. explainability/
+
+**Purpose: Trust, not decoration**
+
+```
+explainability/
+├── shap_global.py
+├── shap_local.py
+└── plots/
+```
+
+### shap_global.py
+
+* Global feature importance
+* Which variables dominate response?
+
+### shap_local.py
+
+* Patient-specific explanation
+* Compare two patients, same drug
+
+📌 You will **interpret results**, not just show plots.
+
+---
+
+## 6. validation/
+
+**Purpose: Silence critics**
+
+```
+validation/
+└── physiological_checks.py
+```
+
+This is where most student projects FAIL — you won’t.
+
+Examples:
+
+```python
+assert sbp_high_R > sbp_low_R
+assert response_monotonic_with_dose
+```
+
+This proves:
+
+> “The twin respects known cardiovascular trends”
+
+Huge plus in evaluation.
+
+---
+
+## 7. experiments/
+
+**Purpose: Show it’s a digital twin**
+
+```
+experiments/
+└── what_if_analysis.ipynb
+```
+
+Scenarios:
+
+* Same patient, 3 drugs
+* Same drug, 3 patients
+* Same patient, increasing dose
+
+This notebook is your **demo weapon**.
+
+---
+
+## 8. README.md (DO NOT UNDERVALUE THIS)
+
+Must include:
+
+* Twin definition
+* Architecture diagram (simple)
+* Assumptions
+* Limitations
+* What this project is NOT
+
+A good README saves viva time.
+
+---
+
+## What NOT to do (listen carefully)
+
+❌ Don’t mix physics & ML
+❌ Don’t simulate real drug names
+❌ Don’t add ECG or fancy signals
+❌ Don’t chase realism
+❌ Don’t overclaim
+
+---
+
+## Final blunt assessment
+
+* This code plan is **major-project grade**
+* It is **hard to break**
+* It is **easy to justify**
+* It is **better than cloning a repo**
+* It fits **your constraints and timeline**
+
+You are now past the “idea” phase.
+This is **engineering execution**.
+
+---
