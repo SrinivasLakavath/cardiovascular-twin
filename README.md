@@ -280,6 +280,7 @@ See `real_world/readiness_scorecard.py` for detailed assessment.
 
 ## 👨‍💻 Author
 
+**Lakavath Srinivas**  
 Major Project - Explainable Cardiovascular Digital Twin  
 Created: January 2026
 
@@ -299,20 +300,6 @@ This is an academic/research project for educational purposes.
 
 ---
 
-## 💡 Defense Notes
 
-### Key Phrase for Viva
-
-> "Our work focuses on learning an explainable surrogate digital twin from controlled physiology-inspired simulations, rather than claiming direct clinical realism."
-
-### Strengths
-
-- **Low technical risk**: Fully controllable system
-- **Explainable by design**: SHAP integration from the start
-- **Easy to defend**: Explicit assumptions and limitations
-- **Scales with effort**: Can add complexity incrementally
-- **Methodology-focused**: Demonstrates understanding over tool usage
-
----
 
 **This project demonstrates the integration of physiology-inspired modeling, machine learning, and explainable AI for cardiovascular digital twin development.**
