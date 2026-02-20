@@ -80,20 +80,26 @@ pip install numpy scipy pandas scikit-learn matplotlib shap jupyter
 
 ```bash
 # 1. Generate synthetic dataset
-python synthetic_layer/data_generator.py
+python src/synthetic_layer/data_generator.py
 
 # 2. Train the digital twin
-python twin_model/train.py
+python src/twin_model/train.py
 
 # 3. Evaluate the model
-python twin_model/evaluate.py
+python src/twin_model/evaluate.py
 
 # 4. Run validation checks
-python validation/physiological_checks.py
+python src/validation/physiological_checks.py
 
 # 5. Generate SHAP explanations (optional)
-python explainability/shap_global.py
-python explainability/shap_local.py
+python src/explainability/shap_global.py
+python src/explainability/shap_local.py
+
+# 6. Run the end-to-end demo script
+python scripts/demo.py
+
+# 7. Launch the interactive UI application
+streamlit run ui/app.py
 ```
 
 ---
@@ -102,20 +108,18 @@ python explainability/shap_local.py
 
 ```
 cardio-digital-twin/
-├── physio_engine/windkessel/      # Windkessel ODE model
-├── synthetic_layer/               # Patient & intervention generators
 ├── data/raw/                      # Synthetic dataset
-├── twin_model/                    # ML surrogate twin
-│   ├── model.py                   # Model architecture
-│   ├── train.py                   # Training pipeline
-│   ├── evaluate.py                # Evaluation metrics
-│   └── weights/                   # Trained models
-├── explainability/                # SHAP analysis
-│   ├── shap_global.py            # Global feature importance
-│   ├── shap_local.py             # Patient-specific explanations
-│   └── plots/                     # Visualization outputs
-├── validation/                    # Physiological checks
-└── experiments/                   # What-if analysis
+├── docs/                          # Project documentation and history
+├── scripts/                       # Demo and utility scripts
+├── src/                           # Core research modules
+│   ├── physio_engine/windkessel/  # Windkessel ODE model
+│   ├── synthetic_layer/           # Patient & intervention generators
+│   ├── twin_model/                # ML surrogate twin
+│   ├── explainability/            # SHAP analysis
+│   ├── v2_real_world/             # Real-world adaptation logic
+│   └── validation/                # Physiological checks
+├── tests/                         # Unit tests and UI connection checks
+└── ui/                            # Streamlit interactive application
 ```
 
 ---
