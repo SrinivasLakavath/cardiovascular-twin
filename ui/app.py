@@ -16,12 +16,14 @@ import streamlit as st
 import sys
 import os
 
-# Add project root and src to path
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(PROJECT_ROOT)
-sys.path.append(os.path.join(PROJECT_ROOT, 'src'))
+# Add project root, ui, and src to path
+UI_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(UI_DIR)
+sys.path.insert(0, UI_DIR)  # Add UI directory first for sections imports
+sys.path.insert(0, PROJECT_ROOT)
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'src'))
 
-# Import section modules
+# Import section modules (using relative or absolute paths)
 from sections.input_panel import render_input_panel
 from sections.output_panel import render_output_panel
 from sections.metrics_panel import render_metrics_panel

@@ -44,7 +44,7 @@ def demo_kaggle_data_loading():
     print_header("DEMO 1: KAGGLE DATA LOADING")
     
     try:
-        df = pd.read_csv('v2_real_world/data/kaggle_bp_data.csv')
+        df = pd.read_csv('src/v2_real_world/data/kaggle_bp_data.csv')
         print(f"\n✓ Loaded Kaggle dataset: {len(df)} rows")
         print(f"  Columns: {list(df.columns)}")
         

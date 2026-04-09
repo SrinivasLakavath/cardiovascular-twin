@@ -1,0 +1,517 @@
+{
+  "metadata": {
+    "total_py_files": 51,
+    "total_lines": 9808,
+    "total_size_kb": 324.88,
+    "scan_root": "."
+  },
+  "files": [
+    {
+      "path": "create_inventory.py",
+      "size_kb": 4.77,
+      "lines": 133,
+      "directory": "."
+    },
+    {
+      "path": "docs/convert_to_word.py",
+      "size_kb": 4.24,
+      "lines": 120,
+      "directory": "docs"
+    },
+    {
+      "path": "scripts/check_calibration.py",
+      "size_kb": 0.88,
+      "lines": 32,
+      "directory": "scripts"
+    },
+    {
+      "path": "scripts/demo.py",
+      "size_kb": 8.67,
+      "lines": 238,
+      "directory": "scripts"
+    },
+    {
+      "path": "scripts/reproduce_sensitivity.py",
+      "size_kb": 1.62,
+      "lines": 46,
+      "directory": "scripts"
+    },
+    {
+      "path": "src/explainability/shap_global.py",
+      "size_kb": 4.66,
+      "lines": 153,
+      "directory": "src/explainability"
+    },
+    {
+      "path": "src/explainability/shap_local.py",
+      "size_kb": 5.41,
+      "lines": 166,
+      "directory": "src/explainability"
+    },
+    {
+      "path": "src/explainability/xai_engine.py",
+      "size_kb": 11.9,
+      "lines": 332,
+      "directory": "src/explainability"
+    },
+    {
+      "path": "src/physio_engine/windkessel/__init__.py",
+      "size_kb": 0.25,
+      "lines": 11,
+      "directory": "src/physio_engine/windkessel"
+    },
+    {
+      "path": "src/physio_engine/windkessel/core.py",
+      "size_kb": 5.84,
+      "lines": 192,
+      "directory": "src/physio_engine/windkessel"
+    },
+    {
+      "path": "src/real_world/calibration.py",
+      "size_kb": 9.85,
+      "lines": 314,
+      "directory": "src/real_world"
+    },
+    {
+      "path": "src/real_world/readiness_scorecard.py",
+      "size_kb": 12.84,
+      "lines": 385,
+      "directory": "src/real_world"
+    },
+    {
+      "path": "src/real_world/scale_adapter.py",
+      "size_kb": 11.62,
+      "lines": 355,
+      "directory": "src/real_world"
+    },
+    {
+      "path": "src/real_world/uncertainty.py",
+      "size_kb": 10.88,
+      "lines": 342,
+      "directory": "src/real_world"
+    },
+    {
+      "path": "src/synthetic_layer/data_generator.py",
+      "size_kb": 5.8,
+      "lines": 192,
+      "directory": "src/synthetic_layer"
+    },
+    {
+      "path": "src/synthetic_layer/intervention_mapper.py",
+      "size_kb": 8.61,
+      "lines": 239,
+      "directory": "src/synthetic_layer"
+    },
+    {
+      "path": "src/synthetic_layer/patient_sampler.py",
+      "size_kb": 4.88,
+      "lines": 165,
+      "directory": "src/synthetic_layer"
+    },
+    {
+      "path": "src/treatment_optimizer/__init__.py",
+      "size_kb": 0.03,
+      "lines": 2,
+      "directory": "src/treatment_optimizer"
+    },
+    {
+      "path": "src/treatment_optimizer/optimizer.py",
+      "size_kb": 10.57,
+      "lines": 296,
+      "directory": "src/treatment_optimizer"
+    },
+    {
+      "path": "src/twin_model/evaluate.py",
+      "size_kb": 7.37,
+      "lines": 232,
+      "directory": "src/twin_model"
+    },
+    {
+      "path": "src/twin_model/model.py",
+      "size_kb": 4.38,
+      "lines": 154,
+      "directory": "src/twin_model"
+    },
+    {
+      "path": "src/twin_model/train.py",
+      "size_kb": 4.98,
+      "lines": 175,
+      "directory": "src/twin_model"
+    },
+    {
+      "path": "src/v2_real_world/data_ingestion/kaggle_loader.py",
+      "size_kb": 6.4,
+      "lines": 224,
+      "directory": "src/v2_real_world/data_ingestion"
+    },
+    {
+      "path": "src/v2_real_world/demos/demo_v2_real_world.py",
+      "size_kb": 6.85,
+      "lines": 222,
+      "directory": "src/v2_real_world/demos"
+    },
+    {
+      "path": "src/v2_real_world/domain_shift/domain_shift_tests.py",
+      "size_kb": 9.49,
+      "lines": 324,
+      "directory": "src/v2_real_world/domain_shift"
+    },
+    {
+      "path": "src/v2_real_world/noise_model/noise_injector.py",
+      "size_kb": 9.86,
+      "lines": 324,
+      "directory": "src/v2_real_world/noise_model"
+    },
+    {
+      "path": "src/v2_real_world/statistics/bp_statistics.py",
+      "size_kb": 7.96,
+      "lines": 274,
+      "directory": "src/v2_real_world/statistics"
+    },
+    {
+      "path": "src/v2_real_world/uncertainty/uncertainty_wrapper.py",
+      "size_kb": 9.3,
+      "lines": 279,
+      "directory": "src/v2_real_world/uncertainty"
+    },
+    {
+      "path": "src/validation/domain_shift_tests.py",
+      "size_kb": 9.86,
+      "lines": 304,
+      "directory": "src/validation"
+    },
+    {
+      "path": "src/validation/physiological_checks.py",
+      "size_kb": 6.86,
+      "lines": 230,
+      "directory": "src/validation"
+    },
+    {
+      "path": "tests/test_backend_ui_match.py",
+      "size_kb": 2.85,
+      "lines": 96,
+      "directory": "tests"
+    },
+    {
+      "path": "tests/test_custom_integration.py",
+      "size_kb": 1.7,
+      "lines": 56,
+      "directory": "tests"
+    },
+    {
+      "path": "tests/test_optimizer.py",
+      "size_kb": 4.68,
+      "lines": 122,
+      "directory": "tests"
+    },
+    {
+      "path": "tests/test_stability_assessment.py",
+      "size_kb": 5.09,
+      "lines": 175,
+      "directory": "tests"
+    },
+    {
+      "path": "tests/test_surrogate.py",
+      "size_kb": 1.97,
+      "lines": 62,
+      "directory": "tests"
+    },
+    {
+      "path": "tests/test_ui_simulation.py",
+      "size_kb": 3.35,
+      "lines": 101,
+      "directory": "tests"
+    },
+    {
+      "path": "tests/test_v1_v2_difference.py",
+      "size_kb": 3.62,
+      "lines": 123,
+      "directory": "tests"
+    },
+    {
+      "path": "tests/test_v2_uncertainty.py",
+      "size_kb": 2.49,
+      "lines": 85,
+      "directory": "tests"
+    },
+    {
+      "path": "tests/test_vital_context.py",
+      "size_kb": 4.42,
+      "lines": 150,
+      "directory": "tests"
+    },
+    {
+      "path": "tests/ui/test_connection.py",
+      "size_kb": 2.86,
+      "lines": 92,
+      "directory": "tests/ui"
+    },
+    {
+      "path": "ui/app.py",
+      "size_kb": 8.5,
+      "lines": 253,
+      "directory": "ui"
+    },
+    {
+      "path": "ui/assets/__init__.py",
+      "size_kb": 0.0,
+      "lines": 1,
+      "directory": "ui/assets"
+    },
+    {
+      "path": "ui/assets/icons.py",
+      "size_kb": 6.11,
+      "lines": 93,
+      "directory": "ui/assets"
+    },
+    {
+      "path": "ui/sections/disclaimer_panel.py",
+      "size_kb": 1.98,
+      "lines": 73,
+      "directory": "ui/sections"
+    },
+    {
+      "path": "ui/sections/input_panel.py",
+      "size_kb": 3.65,
+      "lines": 137,
+      "directory": "ui/sections"
+    },
+    {
+      "path": "ui/sections/methodology_panel.py",
+      "size_kb": 6.66,
+      "lines": 176,
+      "directory": "ui/sections"
+    },
+    {
+      "path": "ui/sections/metrics_panel.py",
+      "size_kb": 4.69,
+      "lines": 152,
+      "directory": "ui/sections"
+    },
+    {
+      "path": "ui/sections/optimizer_panel.py",
+      "size_kb": 9.0,
+      "lines": 222,
+      "directory": "ui/sections"
+    },
+    {
+      "path": "ui/sections/output_panel.py",
+      "size_kb": 34.55,
+      "lines": 914,
+      "directory": "ui/sections"
+    },
+    {
+      "path": "ui/sections/transparency_panel.py",
+      "size_kb": 3.59,
+      "lines": 88,
+      "directory": "ui/sections"
+    },
+    {
+      "path": "validate_imports.py",
+      "size_kb": 6.49,
+      "lines": 182,
+      "directory": "."
+    }
+  ],
+  "by_directory": {
+    ".": [
+      "create_inventory.py",
+      "validate_imports.py"
+    ],
+    "docs": [
+      "docs\\convert_to_word.py"
+    ],
+    "scripts": [
+      "scripts\\check_calibration.py",
+      "scripts\\demo.py",
+      "scripts\\reproduce_sensitivity.py"
+    ],
+    "src/explainability": [
+      "src\\explainability\\shap_global.py",
+      "src\\explainability\\shap_local.py",
+      "src\\explainability\\xai_engine.py"
+    ],
+    "src/physio_engine/windkessel": [
+      "src\\physio_engine\\windkessel\\__init__.py",
+      "src\\physio_engine\\windkessel\\core.py"
+    ],
+    "src/real_world": [
+      "src\\real_world\\calibration.py",
+      "src\\real_world\\readiness_scorecard.py",
+      "src\\real_world\\scale_adapter.py",
+      "src\\real_world\\uncertainty.py"
+    ],
+    "src/synthetic_layer": [
+      "src\\synthetic_layer\\data_generator.py",
+      "src\\synthetic_layer\\intervention_mapper.py",
+      "src\\synthetic_layer\\patient_sampler.py"
+    ],
+    "src/treatment_optimizer": [
+      "src\\treatment_optimizer\\__init__.py",
+      "src\\treatment_optimizer\\optimizer.py"
+    ],
+    "src/twin_model": [
+      "src\\twin_model\\evaluate.py",
+      "src\\twin_model\\model.py",
+      "src\\twin_model\\train.py"
+    ],
+    "src/v2_real_world/data_ingestion": [
+      "src\\v2_real_world\\data_ingestion\\kaggle_loader.py"
+    ],
+    "src/v2_real_world/demos": [
+      "src\\v2_real_world\\demos\\demo_v2_real_world.py"
+    ],
+    "src/v2_real_world/domain_shift": [
+      "src\\v2_real_world\\domain_shift\\domain_shift_tests.py"
+    ],
+    "src/v2_real_world/noise_model": [
+      "src\\v2_real_world\\noise_model\\noise_injector.py"
+    ],
+    "src/v2_real_world/statistics": [
+      "src\\v2_real_world\\statistics\\bp_statistics.py"
+    ],
+    "src/v2_real_world/uncertainty": [
+      "src\\v2_real_world\\uncertainty\\uncertainty_wrapper.py"
+    ],
+    "src/validation": [
+      "src\\validation\\domain_shift_tests.py",
+      "src\\validation\\physiological_checks.py"
+    ],
+    "tests": [
+      "tests\\test_backend_ui_match.py",
+      "tests\\test_custom_integration.py",
+      "tests\\test_optimizer.py",
+      "tests\\test_stability_assessment.py",
+      "tests\\test_surrogate.py",
+      "tests\\test_ui_simulation.py",
+      "tests\\test_v1_v2_difference.py",
+      "tests\\test_v2_uncertainty.py",
+      "tests\\test_vital_context.py"
+    ],
+    "tests/ui": [
+      "tests\\ui\\test_connection.py"
+    ],
+    "ui": [
+      "ui\\app.py"
+    ],
+    "ui/assets": [
+      "ui\\assets\\__init__.py",
+      "ui\\assets\\icons.py"
+    ],
+    "ui/sections": [
+      "ui\\sections\\disclaimer_panel.py",
+      "ui\\sections\\input_panel.py",
+      "ui\\sections\\methodology_panel.py",
+      "ui\\sections\\metrics_panel.py",
+      "ui\\sections\\optimizer_panel.py",
+      "ui\\sections\\output_panel.py",
+      "ui\\sections\\transparency_panel.py"
+    ]
+  },
+  "duplicates": [
+    {
+      "filename": "__init__.py",
+      "locations": [
+        "src/physio_engine/windkessel/__init__.py",
+        "src/treatment_optimizer/__init__.py",
+        "ui/assets/__init__.py"
+      ]
+    },
+    {
+      "filename": "domain_shift_tests.py",
+      "locations": [
+        "src/v2_real_world/domain_shift/domain_shift_tests.py",
+        "src/validation/domain_shift_tests.py"
+      ]
+    }
+  ],
+  "file_summary": {
+    "root": {
+      "count": 2,
+      "total_lines": 315,
+      "files": [
+        "create_inventory.py",
+        "validate_imports.py"
+      ]
+    },
+    "docs": {
+      "count": 1,
+      "total_lines": 120,
+      "files": [
+        "docs/convert_to_word.py"
+      ]
+    },
+    "scripts": {
+      "count": 3,
+      "total_lines": 316,
+      "files": [
+        "scripts/check_calibration.py",
+        "scripts/demo.py",
+        "scripts/reproduce_sensitivity.py"
+      ]
+    },
+    "src": {
+      "count": 25,
+      "total_lines": 5886,
+      "files": [
+        "src/explainability/shap_global.py",
+        "src/explainability/shap_local.py",
+        "src/explainability/xai_engine.py",
+        "src/physio_engine/windkessel/__init__.py",
+        "src/physio_engine/windkessel/core.py",
+        "src/real_world/calibration.py",
+        "src/real_world/readiness_scorecard.py",
+        "src/real_world/scale_adapter.py",
+        "src/real_world/uncertainty.py",
+        "src/synthetic_layer/data_generator.py",
+        "src/synthetic_layer/intervention_mapper.py",
+        "src/synthetic_layer/patient_sampler.py",
+        "src/treatment_optimizer/__init__.py",
+        "src/treatment_optimizer/optimizer.py",
+        "src/twin_model/evaluate.py",
+        "src/twin_model/model.py",
+        "src/twin_model/train.py",
+        "src/v2_real_world/data_ingestion/kaggle_loader.py",
+        "src/v2_real_world/demos/demo_v2_real_world.py",
+        "src/v2_real_world/domain_shift/domain_shift_tests.py",
+        "src/v2_real_world/noise_model/noise_injector.py",
+        "src/v2_real_world/statistics/bp_statistics.py",
+        "src/v2_real_world/uncertainty/uncertainty_wrapper.py",
+        "src/validation/domain_shift_tests.py",
+        "src/validation/physiological_checks.py"
+      ]
+    },
+    "tests": {
+      "count": 10,
+      "total_lines": 1062,
+      "files": [
+        "tests/test_backend_ui_match.py",
+        "tests/test_custom_integration.py",
+        "tests/test_optimizer.py",
+        "tests/test_stability_assessment.py",
+        "tests/test_surrogate.py",
+        "tests/test_ui_simulation.py",
+        "tests/test_v1_v2_difference.py",
+        "tests/test_v2_uncertainty.py",
+        "tests/test_vital_context.py",
+        "tests/ui/test_connection.py"
+      ]
+    },
+    "ui": {
+      "count": 10,
+      "total_lines": 2109,
+      "files": [
+        "ui/app.py",
+        "ui/assets/__init__.py",
+        "ui/assets/icons.py",
+        "ui/sections/disclaimer_panel.py",
+        "ui/sections/input_panel.py",
+        "ui/sections/methodology_panel.py",
+        "ui/sections/metrics_panel.py",
+        "ui/sections/optimizer_panel.py",
+        "ui/sections/output_panel.py",
+        "ui/sections/transparency_panel.py"
+      ]
+    }
+  }
+}
